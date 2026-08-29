@@ -6,7 +6,7 @@ nav_title:
   en: people
   zh-CN: 成员
 description: members of the lab or group
-nav: true
+nav: false
 nav_order: 7
 
 profiles:

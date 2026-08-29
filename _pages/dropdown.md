@@ -14,9 +14,19 @@ children:
       zh-CN: 书架
     permalink: /books/
   - title: divider
-  - title: blog
+  - title: publications
     nav_title:
-      en: blog
-      zh-CN: 博客
-    permalink: /blog/
+      en: publications
+      zh-CN: 论文
+    permalink: /publications/
+  - title: teaching
+    nav_title:
+      en: teaching
+      zh-CN: 教学
+    permalink: /teaching/
+  - title: people
+    nav_title:
+      en: people
+      zh-CN: 成员
+    permalink: /people/
 ---
