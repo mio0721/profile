@@ -3,5 +3,3 @@ design:
   theme: classic
   page:
     size: a4
-    show_footer: false
-    show_top_note: false

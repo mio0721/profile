@@ -40,7 +40,7 @@ end
 
 # Gems for al-folio plugins
 group :al_folio_plugins do
-    gem 'al_folio_core', '= 1.0.15'
+    gem 'al_folio_core', git: 'https://github.com/mio0721/al-folio-core.git', ref: '017f609ba25c24b31b57f9e6ef1e791e4e094546'
     gem 'al_icons', '= 1.0.0'
     gem 'al_folio_cv', '= 1.0.2'
     gem 'al_folio_distill', '= 1.0.3'

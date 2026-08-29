@@ -2,6 +2,9 @@
 layout: page
 permalink: /teaching/
 title: teaching
+nav_title:
+  en: teaching
+  zh-CN: 教学
 description: Course materials, schedules, and resources for classes taught.
 nav: true
 nav_order: 6

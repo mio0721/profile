@@ -2,6 +2,9 @@
 layout: profiles
 permalink: /people/
 title: people
+nav_title:
+  en: people
+  zh-CN: 成员
 description: members of the lab or group
 nav: true
 nav_order: 7
