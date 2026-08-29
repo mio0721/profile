@@ -4,7 +4,7 @@ title: about
 permalink: /
 lang: en
 nav_title:
-  en: about
+  en: About
   zh-CN: 关于
 localized_permalinks:
   en: /

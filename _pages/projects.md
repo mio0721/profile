@@ -2,7 +2,7 @@
 layout: page
 title: projects
 nav_title:
-  en: projects
+  en: Projects
   zh-CN: 项目
 permalink: /projects/
 description: A growing collection of your cool projects.

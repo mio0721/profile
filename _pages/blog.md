@@ -3,7 +3,7 @@ layout: default
 permalink: /blog/
 title: blog
 nav_title:
-  en: blog
+  en: Blog
   zh-CN: 博客
 nav: true
 nav_order: 1
