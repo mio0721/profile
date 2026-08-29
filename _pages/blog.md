@@ -32,6 +32,18 @@ pagination:
   </div>
   {% endif %}
 
+
+  <div style="text-align: center; margin: 2rem 0;">
+  <a
+    href="https://mio0721.github.io/"
+    class="btn btn-primary"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Tap to visit Mio's Blog
+  </a>
+  </div>
+
 {% if site.display_tags and site.display_tags.size > 0 or site.display_categories and site.display_categories.size > 0 %}
 
   <div class="tag-category-list">

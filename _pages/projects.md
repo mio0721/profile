@@ -1,6 +1,6 @@
 ---
 layout: page
-title: projects
+title: Projects
 nav_title:
   en: Projects
   zh-CN: 项目
