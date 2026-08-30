@@ -5,7 +5,7 @@ title: Publications
 nav_title:
   en: Publications
   zh-CN: 论文
-description: 
+description:
 nav: false
 nav_order: 2
 ---

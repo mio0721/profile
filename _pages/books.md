@@ -6,5 +6,4 @@ nav: false
 collection: books
 ---
 
-
 ## Coming soon

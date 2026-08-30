@@ -32,7 +32,6 @@ pagination:
   </div>
   {% endif %}
 
-
   <div style="text-align: center; margin: 2rem 0;">
   <a
     href="https://mio0721.github.io/"

@@ -5,12 +5,11 @@ title: Teaching
 nav_title:
   en: Teaching
   zh-CN: 教学
-description: 
+description:
 nav: false
 nav_order: 6
 calendar: true
 ---
-
 
 {% include calendar.liquid calendar_id='test@gmail.com' timezone='Asia/Shanghai' %}
 

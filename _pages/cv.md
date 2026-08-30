@@ -15,7 +15,7 @@ nav_order: 5
 cv_data: cv
 cv_pdf: /assets/rendercv/rendercv_output/Mio_CV_EN.pdf
 cv_format: rendercv # options: rendercv, jsonresume
-description: 
+description:
 toc:
   sidebar: left
 ---
