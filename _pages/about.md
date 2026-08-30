@@ -3,6 +3,7 @@ layout: about
 title: about
 permalink: /
 lang: en
+translation_key: about
 nav_title:
   en: About
   zh-CN: 关于
@@ -12,8 +13,8 @@ localized_permalinks:
 subtitle: Robotics · Control · Learning-based Dynamics
 
 profile:
-  align: right
-  image: prof_pic.jpg
+  align: left
+  image: Tiara2.jpg
   image_circular: false
   more_info: >
     <p>Master's Student</p>
