@@ -6,6 +6,7 @@ on:
       - master
     paths:
       - "_data/cv.yml"
+      - "_data/cv_zh.yml"
       - "assets/rendercv/design.yaml"
       - "assets/rendercv/locale.yaml"
       - "assets/rendercv/settings.yaml"
@@ -27,11 +28,6 @@ jobs:
           pip install -r requirements.txt
       - name: RenderCV
         run: |
-          cv_file=$(find _data  -maxdepth 1 -type f \( -name "cv.yaml" -o -name "cv.yml" \))
-          if [ -z "$cv_file" ]; then
-            echo "No cv.yml file found!"
-            exit 1
-          fi
           rendercv_dir=$(find assets -maxdepth 1 -type d -name "rendercv")
           if [ -z "$rendercv_dir" ]; then
             echo "No RenderCV config directory found!"
@@ -44,8 +40,17 @@ jobs:
           fi
           design=$(find $rendercv_dir -maxdepth 1 -type f \( -name "design.yaml" -o -name "design.yml" \))
           locale=$(find $rendercv_dir -maxdepth 1 -type f \( -name "locale.yaml" -o -name "locale.yml" \))
-          rendercv render "$cv_file" --design "$design" --locale-catalog "$locale" --rendercv-settings "$settings" --output-folder-name "$rendercv_dir/rendercv_output"
-          rm assets/rendercv/rendercv_output/*.typ
+          output_dir="$rendercv_dir/rendercv_output"
+          english_dir="$output_dir/english"
+          chinese_dir="$output_dir/chinese"
+
+          rendercv render _data/cv.yml --design "$design" --locale-catalog "$locale" --rendercv-settings "$settings" --output-folder-name "$english_dir"
+          english_pdf=$(find "$english_dir" -maxdepth 1 -type f -name "*.pdf" -print -quit)
+          cp "$english_pdf" "$output_dir/Mio_CV_EN.pdf"
+
+          rendercv render _data/cv_zh.yml --design "$design" --locale-catalog "$locale" --rendercv-settings "$settings" --output-folder-name "$chinese_dir"
+          chinese_pdf=$(find "$chinese_dir" -maxdepth 1 -type f -name "*.pdf" -print -quit)
+          cp "$chinese_pdf" "$output_dir/Mio_CV_ZH.pdf"
       - name: Upload rendercv_output as an artifact
         uses: actions/upload-artifact@v4
         with:
