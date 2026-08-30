@@ -1,5 +1,5 @@
 # for details on settings, see https://docs.rendercv.com/user_guide/yaml_input_structure/settings/
-rendercv_settings:
+settings:
   render_command:
     dont_generate_markdown: true
     dont_generate_html: true
