@@ -8,8 +8,8 @@ GIT
 
 GIT
   remote: https://github.com/mio0721/al-folio-core.git
-  revision: 4c16980d17736838884037398d467f8f865e6578
-  ref: 4c16980d17736838884037398d467f8f865e6578
+  revision: d82c2255400a15019bf5a1e2bed968a46dbad32a
+  ref: d82c2255400a15019bf5a1e2bed968a46dbad32a
   specs:
     al_folio_core (1.0.15)
       jekyll (>= 3.9, < 5.0)

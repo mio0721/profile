@@ -5,7 +5,7 @@ title: Repositories
 nav_title:
   en: Repositories
   zh-CN: 仓库
-description: 
+description:
 nav: true
 nav_order: 4
 ---
