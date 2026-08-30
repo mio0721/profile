@@ -7,8 +7,10 @@ on:
     paths:
       - "_data/cv.yml"
       - "_data/cv_zh.yml"
+      - "requirements.txt"
       - "assets/rendercv/design.yaml"
       - "assets/rendercv/locale.yaml"
+      - "assets/rendercv/locale_zh.yaml"
       - "assets/rendercv/settings.yaml"
   workflow_call:
   workflow_dispatch:
@@ -39,16 +41,18 @@ jobs:
             exit 1
           fi
           design=$(find $rendercv_dir -maxdepth 1 -type f \( -name "design.yaml" -o -name "design.yml" \))
-          locale=$(find $rendercv_dir -maxdepth 1 -type f \( -name "locale.yaml" -o -name "locale.yml" \))
+          locale_en="$rendercv_dir/locale.yaml"
+          locale_zh="$rendercv_dir/locale_zh.yaml"
           output_dir="$rendercv_dir/rendercv_output"
-          english_dir="$output_dir/english"
-          chinese_dir="$output_dir/chinese"
+          english_dir="$RUNNER_TEMP/rendercv-english"
+          chinese_dir="$RUNNER_TEMP/rendercv-chinese"
+          mkdir -p "$output_dir"
 
-          rendercv render _data/cv.yml --design "$design" --locale-catalog "$locale" --rendercv-settings "$settings" --output-folder-name "$english_dir"
+          rendercv render _data/cv.yml --design "$design" --locale-catalog "$locale_en" --settings "$settings" --output-folder "$english_dir"
           english_pdf=$(find "$english_dir" -maxdepth 1 -type f -name "*.pdf" -print -quit)
           cp "$english_pdf" "$output_dir/Mio_CV_EN.pdf"
 
-          rendercv render _data/cv_zh.yml --design "$design" --locale-catalog "$locale" --rendercv-settings "$settings" --output-folder-name "$chinese_dir"
+          rendercv render _data/cv_zh.yml --design "$design" --locale-catalog "$locale_zh" --settings "$settings" --output-folder "$chinese_dir"
           chinese_pdf=$(find "$chinese_dir" -maxdepth 1 -type f -name "*.pdf" -print -quit)
           cp "$chinese_pdf" "$output_dir/Mio_CV_ZH.pdf"
       - name: Upload rendercv_output as an artifact

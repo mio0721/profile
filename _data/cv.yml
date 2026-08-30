@@ -1,11 +1,12 @@
 cv:
   name: Mio
-  label: Master's Student
-  summary: >
-    Master's student working on robot modeling and control, continuum robotics,
-    learning-based dynamics, and motion planning.
+  headline: Master's Student
 
   sections:
+    Professional Summary:
+      - >
+        Master's student working on robot modeling and control, continuum robotics,
+        learning-based dynamics, and motion planning.
     Research Interests:
       - name: Continuum Robotics
         summary: Tendon-driven continuum robots, modeling, simulation, control, and hardware experiments.
