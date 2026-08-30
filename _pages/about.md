@@ -24,12 +24,12 @@ selected_papers: false
 social: true
 
 announcements:
-  enabled: true
+  enabled: false
   scrollable: true
   limit: 3
 
 latest_posts:
-  enabled: true
+  enabled: false
   scrollable: true
   limit: 3
 ---
@@ -45,6 +45,7 @@ My research and projects focus on:
 - 🧠 Learning-based dynamics and control
 - 🧭 Motion planning
 - 🤝 Robot agents / embodied AI
+  
 
 I am currently building a complete tendon-driven continuum robot system, with the goal of connecting the full research pipeline:
 
