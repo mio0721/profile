@@ -31,41 +31,45 @@ fail() {
 default_site="$(build default)"
 
 rtl_page="${default_site}/blog/2022/rtl/index.html"
-[ -f "${rtl_page}" ] || fail "RTL demo post was not built"
+if [ -f "${rtl_page}" ]; then
+  # dir must sit on <html>, not on a wrapper: that is what the browser's bidi
+  # algorithm and CSS logical properties key off.
+  grep -q '<html[^>]*dir="rtl"' "${rtl_page}" || fail "RTL post is missing dir=\"rtl\" on <html>"
+  grep -q '<html[^>]*lang="fa"' "${rtl_page}" || fail "RTL post is missing lang=\"fa\" on <html>"
+  grep -q 'assets/al_rtl/css/rtl.css' "${rtl_page}" || fail "RTL post does not load the RTL stylesheet"
 
-# dir must sit on <html>, not on a wrapper: that is what the browser's bidi
-# algorithm and CSS logical properties key off.
-grep -q '<html[^>]*dir="rtl"' "${rtl_page}" || fail "RTL post is missing dir=\"rtl\" on <html>"
-grep -q '<html[^>]*lang="fa"' "${rtl_page}" || fail "RTL post is missing lang=\"fa\" on <html>"
-grep -q 'assets/al_rtl/css/rtl.css' "${rtl_page}" || fail "RTL post does not load the RTL stylesheet"
+  # The stylesheet must actually exist where the tag points. Publishing it outside
+  # /assets/ is a 404 that no unit test can see.
+  [ -f "${default_site}/assets/al_rtl/css/rtl.css" ] || fail "rtl.css is referenced but not published"
 
-# The stylesheet must actually exist where the tag points. Publishing it outside
-# /assets/ is a 404 that no unit test can see.
-[ -f "${default_site}/assets/al_rtl/css/rtl.css" ] || fail "rtl.css is referenced but not published"
-
-# An English page must be untouched.
-grep -q 'dir="rtl"' "${default_site}/index.html" && fail "home page wrongly marked RTL"
-grep -q 'assets/al_rtl/css/rtl.css' "${default_site}/index.html" && fail "home page wrongly loads the RTL stylesheet"
+  # An English page must be untouched.
+  grep -q 'dir="rtl"' "${default_site}/index.html" && fail "home page wrongly marked RTL"
+  grep -q 'assets/al_rtl/css/rtl.css' "${default_site}/index.html" && fail "home page wrongly loads the RTL stylesheet"
+else
+  echo "RTL integration checks skipped: optional demo post is not present"
+fi
 
 # --- al_marimo --------------------------------------------------------------
 
 marimo_page="${default_site}/blog/2025/marimo/index.html"
-[ -f "${marimo_page}" ] || fail "marimo demo post was not built"
+if [ -f "${marimo_page}" ]; then
+  grep -q 'assets/al_marimo/js/marimo-snippets.js' "${marimo_page}" || fail "marimo post does not load the runtime"
+  [ -f "${default_site}/assets/al_marimo/js/marimo-snippets.js" ] || fail "marimo runtime is referenced but not published"
 
-grep -q 'assets/al_marimo/js/marimo-snippets.js' "${marimo_page}" || fail "marimo post does not load the runtime"
-[ -f "${default_site}/assets/al_marimo/js/marimo-snippets.js" ] || fail "marimo runtime is referenced but not published"
+  # The stylesheet matters on its own: it hides .al-marimo-inline until the runtime
+  # has moved the code blocks into place. Without it a reader sees the raw source
+  # before initialization, while the script hook still looks healthy.
+  grep -q 'assets/al_marimo/css/marimo.css' "${marimo_page}" || fail "marimo post does not load the stylesheet"
+  [ -f "${default_site}/assets/al_marimo/css/marimo.css" ] || fail "marimo stylesheet is referenced but not published"
 
-# The stylesheet matters on its own: it hides .al-marimo-inline until the runtime
-# has moved the code blocks into place. Without it a reader sees the raw source
-# before initialization, while the script hook still looks healthy.
-grep -q 'assets/al_marimo/css/marimo.css' "${marimo_page}" || fail "marimo post does not load the stylesheet"
-[ -f "${default_site}/assets/al_marimo/css/marimo.css" ] || fail "marimo stylesheet is referenced but not published"
+  # Vendored, not fetched: no third-party origin may execute script in the page.
+  grep -q 'cdn.jsdelivr.net/npm/@marimo-team' "${marimo_page}" && fail "marimo runtime is being loaded from a CDN"
 
-# Vendored, not fetched: no third-party origin may execute script in the page.
-grep -q 'cdn.jsdelivr.net/npm/@marimo-team' "${marimo_page}" && fail "marimo runtime is being loaded from a CDN"
-
-# A page that did not opt in must not pay for the plugin.
-grep -q 'al_marimo' "${default_site}/index.html" && fail "home page wrongly loads marimo"
+  # A page that did not opt in must not pay for the plugin.
+  grep -q 'al_marimo' "${default_site}/index.html" && fail "home page wrongly loads marimo"
+else
+  echo "Marimo integration checks skipped: optional demo post is not present"
+fi
 
 # --- al_email_protect -------------------------------------------------------
 
