@@ -5,7 +5,7 @@ title: blog
 nav_title:
   en: Blog
   zh-CN: 博客
-nav: true
+nav: false
 nav_order: 1
 pagination:
   enabled: true

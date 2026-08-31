@@ -1,0 +1,329 @@
+/*
+ * 英文 CV 样式
+ * 按 zhuxz0299/my-profile 的 Bootstrap 4 + JSON Resume 排版逆向适配。
+ * 当前站点使用 al-folio v1 的 Bootstrap 兼容层，因此关键尺寸在这里明确声明。
+ */
+
+/* ---------- 卡片与栏目标题 ---------- */
+
+.mio-cv .card {
+  color: var(--global-text-color);
+  background-color: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.25rem; /* Bootstrap 4 原始卡片圆角 */
+  box-shadow: none;
+}
+
+.mio-cv .card-title {
+  margin: 0 0 1rem;
+  color: var(--global-text-color);
+  font-size: 1.75rem; /* Bootstrap 4 h3 */
+  font-weight: 300 !important;
+  line-height: 1.2;
+}
+
+/* ---------- Basics ---------- */
+
+/*
+ * Basics 必须保留独立的单元格 padding。
+ * 之前用 table-cv td 全局归零，导致标签和值挤在一起。
+ */
+.mio-cv #basics table.table-cv {
+  width: 100%;
+  margin: 0;
+  color: var(--global-text-color);
+  background: transparent !important;
+  border-collapse: collapse;
+}
+
+.mio-cv #basics table.table-cv td {
+  color: var(--global-text-color);
+  font-size: 1rem;
+  line-height: 1.5;
+  vertical-align: top;
+  border: 0 !important;
+}
+
+/* 左侧 Name / Label / Url / Summary 标签。 */
+.mio-cv #basics table.table-cv td:first-child {
+  width: 7.5rem;
+  padding: 0.25rem 0.5rem 0.25rem 0.25rem !important;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* 右侧具体内容；左侧 0.5rem 是目标站 pl-2 的间距。 */
+.mio-cv #basics table.table-cv td:last-child {
+  padding: 0.25rem 0.25rem 0.25rem 0.5rem !important;
+  font-weight: 300;
+}
+
+/* ---------- 列表和分隔线 ---------- */
+
+.mio-cv ul.list-group,
+.mio-cv ul.list-group.list-group-flush {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+/* Bootstrap 4 的 list-group-item 使用 0.75rem 1.25rem。 */
+.mio-cv .list-group-item {
+  margin: 0 !important;
+  padding: 0.75rem 1.25rem;
+  color: var(--global-text-color);
+  background-color: inherit !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--global-divider-color) !important;
+  border-radius: 0 !important;
+  list-style: none !important;
+}
+
+.mio-cv .list-group-item:last-child {
+  border-bottom: 0 !important;
+}
+
+/* 清除旧时间轴或浏览器列表 marker 产生的圆点和额外短线。 */
+.mio-cv .list-group-item::before,
+.mio-cv .list-group-item::after,
+.mio-cv .badge::before,
+.mio-cv .badge::after {
+  display: none !important;
+  content: none !important;
+}
+
+.mio-cv .list-group-item::marker,
+.mio-cv ul.items > li::marker {
+  font-size: 0;
+  content: "";
+}
+
+/* ---------- 目标站原生 2/10 栅格 ---------- */
+
+/* Bootstrap row：左右各 -15px，与两列各自 15px padding 配套。 */
+.mio-cv .list-group-item > .row {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-right: -15px !important;
+  margin-left: -15px !important;
+}
+
+/* 左侧日期列：2/12。 */
+.mio-cv .list-group-item > .row > .date-column {
+  position: relative;
+  width: 100% !important;
+  max-width: 16.666667% !important;
+  min-height: 1px;
+  margin: 0 !important;
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+  flex: 0 0 16.666667% !important;
+  text-align: center !important;
+  transform: translateX(-15px) translateY(-5px); /* 目标仓库 _base.scss 的原始位置 */
+}
+
+/* 右侧正文列：10/12。 */
+.mio-cv .list-group-item > .row > .cv-entry-body {
+  position: relative;
+  width: 100% !important;
+  max-width: 83.333333% !important;
+  min-height: 1px;
+  margin: 0 !important;
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+  flex: 0 0 83.333333% !important;
+}
+
+/* 目标站正文在 md 桌面尺寸额外使用 ml-md-4，即 1.5rem。 */
+@media (min-width: 768px) {
+  .mio-cv .cv-entry-body > h6,
+  .mio-cv .cv-entry-body > p {
+    margin-left: 1.5rem;
+  }
+}
+
+/* ---------- 日期与地址 ---------- */
+
+/* 这里只归零日期列内部表格，不能再影响 Basics 和 Skills。 */
+.mio-cv .date-column table.table-cv,
+.mio-cv .date-column table.table-cv tbody,
+.mio-cv .date-column table.table-cv tr,
+.mio-cv .date-column table.table-cv td {
+  margin: 0;
+  padding: 1px !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+/* Bootstrap 4 原始 badge 比例。 */
+.mio-cv .badge {
+  display: inline-block;
+  min-width: 75px;
+  padding: 0.25em 0.4em;
+  color: var(--global-card-bg-color) !important;
+  background-color: var(--global-theme-color) !important;
+  border-radius: 0.25rem; /* 目标站不是胶囊圆角 */
+  font-size: 75%;
+  font-weight: 700 !important;
+  line-height: 1;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.mio-cv p.location {
+  margin: 0.2rem 0 0;
+  color: var(--global-text-color);
+  font-size: 0.7rem !important;
+  font-weight: 300 !important;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.mio-cv .iconlocation {
+  color: var(--global-theme-color);
+  font-size: 0.8rem;
+}
+
+/* ---------- 正文层级 ---------- */
+
+.mio-cv h6.title,
+.mio-cv h6.title a {
+  margin-top: 0 !important;
+  color: var(--global-theme-color);
+  font-size: 1rem;
+  font-weight: 700 !important;
+  line-height: 1.2;
+}
+
+.mio-cv h6:not(.title),
+.mio-cv p,
+.mio-cv .item {
+  color: var(--global-text-color);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.45;
+}
+
+.mio-cv .entry-summary {
+  font-style: italic;
+}
+
+.mio-cv .cv-entry-body > :last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Projects 详情保持整齐，不显示浏览器默认圆点。 */
+.mio-cv ul.items {
+  margin: 0.4rem 0 0 1.5rem;
+  padding: 0;
+  list-style: none !important;
+}
+
+.mio-cv ul.items > li {
+  margin: 0.1rem 0 0;
+  padding: 0;
+  list-style: none !important;
+}
+
+/* ---------- Skills ---------- */
+
+/*
+ * 目标站的 Skills 内部没有横线，只有卡片最外层边框。
+ * 同时清除 table、tr、td 和 list-group 可能继承到的主题边框。
+ */
+.mio-cv #skills .list-groups,
+.mio-cv #skills .list-group,
+.mio-cv #skills table,
+.mio-cv #skills tbody,
+.mio-cv #skills tr,
+.mio-cv #skills td {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.mio-cv .list-groups {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  justify-content: flex-start;
+  margin: 0 !important;
+}
+
+.mio-cv .list-groups > .list-group {
+  display: flex;
+  flex: 0 0 50%;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 50%;
+  margin: 0 0 2rem;
+  padding: 0 15px;
+}
+
+.mio-cv .list-group-category {
+  padding: 1px 1rem 0.5rem 0 !important;
+  color: var(--global-theme-color);
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.mio-cv .list-group-category-icon {
+  width: 1.4rem;
+  padding: 1px 0.4rem 1px 0 !important;
+}
+
+.mio-cv .list-group-name {
+  padding: 1px 1rem 1px 0 !important;
+  color: var(--global-text-color);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* ---------- 左侧目录 ---------- */
+
+#toc-sidebar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#toc-sidebar::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+#toc-sidebar .toc-link {
+  transition:
+    color 80ms linear,
+    font-weight 80ms linear;
+}
+
+/* ---------- 窄屏 ---------- */
+
+@media (max-width: 767.98px) {
+  .mio-cv .card-title {
+    font-size: 1.6rem;
+  }
+
+  .mio-cv .list-group-item > .row > .date-column,
+  .mio-cv .list-group-item > .row > .cv-entry-body {
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+  }
+
+  .mio-cv .list-group-item > .row > .date-column {
+    margin-bottom: 0.5rem !important;
+    text-align: left !important;
+    transform: none;
+  }
+
+  .mio-cv .list-groups > .list-group {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
