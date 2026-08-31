@@ -1,16 +1,81 @@
 cv:
   name: Mio
-  headline: 硕士研究生
+  headline: 机器人与机械工程学生
+  website: https://mio0721.github.io/profile/
+  social_networks:
+    - network: GitHub
+      username: mio0721
 
   sections:
     个人简介:
-      - >
-        主要研究机器人建模与控制、连续体机器人、
-        基于学习的动力学与运动规划。
-    研究方向:
-      - name: 连续体机器人
-        summary: 绳驱连续体机器人的建模、仿真、控制与硬件实验。
-      - name: 基于学习的动力学与控制
-        summary: 动力学学习、机器人控制与运动规划。
-      - name: 具身智能
-        summary: 机器人智能体与具身智能。
+      - 具备机器人设计、机械建模、运动仿真、有限元分析、嵌入式开发、机器视觉与路径规划的项目经验。具备学生团队管理经验，能够通过3D打印和系统集成将工程方案转化为实体原型。
+
+    教育背景:
+      - institution: 上海大学
+        area: 机电工程与自动化学院
+        degree: 本科
+
+    科研经历:
+      - name: 基于海尔贝克磁体阵列的工业管道巡检机器人
+        start_date: "2023-05"
+        end_date: present
+        summary: 项目负责人
+        highlights:
+          - 使用Autodesk Inventor完成机械建模与运动仿真。
+          - 使用Altair Inspire开展结构轻量化设计。
+          - 通过3D打印制作原型，并参与嵌入式系统开发。
+
+    学生工作:
+      - name: 班长
+        start_date: "2021-12"
+        end_date: present
+        summary: 组织班级各项活动，协调处理班级日常事务。
+
+    荣誉奖励:
+      - name: 第十七届“高教杯”全国大学生先进成图技术与产品信息建模创新大赛
+        date: "2024-07"
+        highlights:
+          - 机械类团体一等奖
+          - 轻量化设计赛道二等奖
+          - 先进成图技术赛道二等奖
+          - 增材制造赛道三等奖
+
+      - name: 中国大学生机械工程创新创意大赛
+        date: "2023-11"
+        summary: 机械产品数字化设计赛（区域赛）二等奖
+
+      - name: 第十四届“上图杯”先进成图技术创新设计大赛
+        date: "2024-06"
+        highlights:
+          - 三维赛道个人一等奖
+          - 二维赛道个人一等奖
+
+      - name: 上海大学“创造杯”大赛
+        date: "2023-11"
+        summary: 优胜奖
+
+      - name: 上海大学校级荣誉
+        date: "2024-04"
+        highlights:
+          - “百名优秀团员”
+          - “优秀班委”
+          - “优秀学生”
+          - “社区优秀个人”
+
+      - name: 上海大学奖学金
+        date: "2024-01"
+        highlights:
+          - 学业优秀一等奖学金
+          - 领导力奖学金
+
+    专业技能:
+      - label: 工程软件
+        details: UG/NX、Autodesk Inventor、Adams、Altair Inspire
+      - label: 工程分析
+        details: 三维建模、运动仿真、有限元分析、轻量化设计
+      - label: 编程与嵌入式
+        details: MATLAB、Python、树莓派、Arduino
+      - label: 原型制作
+        details: 3D打印与机械原型开发
+      - label: 语言
+        details: 英语四级；英语六级
