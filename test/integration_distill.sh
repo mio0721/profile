@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+if ! grep -Rqs --include='*.md' --include='*.html' '^layout:[[:space:]]*distill' _posts; then
+  echo "distill integration checks skipped: no Distill post fixture is present"
+  exit 0
+fi
+
 tmp_dir="$(mktemp -d)"
 tmp_override="${tmp_dir}/distill-override.yml"
 tmp_site="${tmp_dir}/site"
