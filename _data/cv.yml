@@ -1,13 +1,15 @@
 cv:
   name: Mio
-  label: Robotics and Mechanical Engineering Student
-  summary: Robotics student with hands-on experience in robot design, mechanical modeling, motion simulation, finite element analysis, embedded development, computer vision, and path planning. Experienced in leading student teams and translating engineering concepts into prototypes through 3D printing and system integration.
+  headline: Robotics and Mechanical Engineering Student
   website: https://mio0721.github.io/profile/
   social_networks:
     - network: GitHub
       username: mio0721
 
   sections:
+    Professional Summary:
+      - Robotics student with hands-on experience in robot design, mechanical modeling, motion simulation, finite element analysis, embedded development, computer vision, and path planning. Experienced in leading student teams and translating engineering concepts into prototypes through 3D printing and system integration.
+
     Education:
       - institution: Shanghai University
         location: Shanghai, China
@@ -35,49 +37,44 @@ cv:
 
     Experience:
       - position: Class Monitor
-        organization: Shanghai University
+        company: Shanghai University
         start_date: "2021-12"
         end_date: present
         summary: Organized class activities and coordinated day-to-day class affairs.
 
     Honors and Awards:
-      - title: 17th Higher Education Cup National College Student Advanced Graphics Technology and Product Information Modeling Innovation Competition
+      - name: 17th Higher Education Cup National College Student Advanced Graphics Technology and Product Information Modeling Innovation Competition
         date: "2024-07"
         summary: First Prize in the Mechanical Group Competition; Second Prize in the Lightweight Design Track; Second Prize in the Advanced Graphics Technology Track; Third Prize in the Additive Manufacturing Track.
 
-      - title: China College Student Mechanical Engineering Innovation and Creativity Competition
+      - name: China College Student Mechanical Engineering Innovation and Creativity Competition
         date: "2023-11"
         summary: Second Prize, Regional Mechanical Product Digital Design Competition
 
-      - title: 14th Shangtu Cup Advanced Graphics Technology and Innovation Design Competition
+      - name: 14th Shangtu Cup Advanced Graphics Technology and Innovation Design Competition
         date: "2024-06"
         summary: First Prize in the Individual 3D Category and First Prize in the Individual 2D Category.
 
-      - title: Shanghai University Chuangzao Cup Competition
+      - name: Shanghai University Chuangzao Cup Competition
         date: "2023-11"
         summary: Excellence Award
 
-      - title: Shanghai University Honors
+      - name: Shanghai University Honors
         date: "2024-04"
         summary: Top 100 Outstanding Youth League Member; Outstanding Class Committee Member; Outstanding Student; Outstanding Community Individual.
 
-      - title: Shanghai University Scholarships
+      - name: Shanghai University Scholarships
         date: "2024-01"
         summary: First-class Academic Excellence Scholarship and Leadership Scholarship.
 
     Skills:
-      - name: Engineering Software
-        keywords:
-          - <span class="cv-skill-value">UG/NX</span><span class="cv-skill-value">Autodesk Inventor</span><span class="cv-skill-value">Adams</span><span class="cv-skill-value">Altair Inspire</span>
-      - name: Engineering Analysis
-        keywords:
-          - <span class="cv-skill-value">3D modeling</span><span class="cv-skill-value">Motion simulation</span><span class="cv-skill-value">Finite element analysis</span><span class="cv-skill-value">Lightweight design</span>
-      - name: Programming and Embedded Systems
-        keywords:
-          - <span class="cv-skill-value">MATLAB</span><span class="cv-skill-value">Python</span><span class="cv-skill-value">Raspberry Pi</span><span class="cv-skill-value">Arduino</span>
-      - name: Prototyping
-        keywords:
-          - <span class="cv-skill-value">3D printing</span><span class="cv-skill-value">Mechanical prototype development</span>
-      - name: Languages
-        keywords:
-          - <span class="cv-skill-value">English CET-4</span><span class="cv-skill-value">English CET-6</span>
+      - label: Engineering Software
+        details: UG/NX, Autodesk Inventor, Adams, Altair Inspire
+      - label: Engineering Analysis
+        details: 3D modeling, motion simulation, finite element analysis, lightweight design
+      - label: Programming and Embedded Systems
+        details: MATLAB, Python, Raspberry Pi, Arduino
+      - label: Prototyping
+        details: 3D printing, mechanical prototype development
+      - label: Languages
+        details: English CET-4; English CET-6
